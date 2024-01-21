@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="钟圣涛">
+  <meta name="description" content="考试时钟。祝各位同学使用考试时钟时心情愉悦，考试顺利！">
+  <meta name="keywords" content="考试时钟,网页时钟,在线时钟,考试时间">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdsygz.s3.bitiful.net/clock/css/main.css">
+  <link rel="stylesheet" href="https://cdsygz.s3.bitiful.net/clock/css/cp.css">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css">
+  <base target="_blank">
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "axvxzgha2e");
+  </script>
+  <title>蔡甸实验高中考试时钟系统</title>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://cdsygz.s3.bitiful.net/clock/css/cover.css">
+  <div id="coverLaunch">
+    <p>祝同学们考试顺利！</p>
+  </div>
+
+  <div id="cover">
+    <div id="coverMask"></div>
+    <div></div>
+    <div class="coverMain">
+      <div class="info">
+        <div class="title skew">
+          <div class="reskew">
+            <p id="coverTitle">蔡甸实验高中考试时钟系统</p>
+            <p id="coverAuthor">Build By钟圣涛</p>
+          </div>
+          <div class="titleBadge">
+            <div class="reskew">
+              <p style="font-size:1.5em">7</p>
+              <p style="font-size:.6em">EZ</p>
+            </div>
+          </div>
+        </div>
+        <div class="desc skew">
+          <p class="reskew">
+            <span class="dim">From</span><br>
+            <span id="coverOrigin">蔡甸区实验高级中学</span>
+          </p>
+          <!-- <p class="reskew">
+            <span class="dim">Illustration</span><br>
+            <span id="bgHook">一卷图库</span>
+          </p> -->
+        </div>
+      </div>
+      <div class="cover skew">
+        <div class="reskew" id="coverImage"></div>
+      </div>
+    </div>
+    <div class="dim space-between">
+      <p>Tip: <span id="coverTips"></span></p>
+      <p class="loadingBar">Loading...</p>
+    </div>
+  </div>
+
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/cover.js"></script>
+
+  <div id="main" style="opacity:1;font-size:1em;">
+    <div class="notify">
+      <div id="verify">
+        <i class="fa-solid fa-shield"></i>
+        <span id="verifycontent">安全提示内容</span>
+      </div>
+      <div id="msg">
+        <p>
+          <i class="fa-solid fa-circle-info"></i>
+          <span id="msgcontent">消息内容</span>
+        </p>
+        <a class="fa-solid fa-xmark"></a>
+      </div>
+    </div>
+
+    <div>
+      <nav class="space-between">
+        <h2 id="mainslogan">考试时钟</h2>
+
+        <div class="sub space-between space">
+          <div class="dropdown" style="min-width:5.5em;">
+            <a class="btn">
+              <div class="space-between">
+                <span id="type">选择类型</span>
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+            </a>
+            <div id="typelist" style="width:100%;">
+              <a onclick="subject.switch(230)">高一时间表</a>
+              <a onclick="subject.switch(231)">高一物生地</a>
+              <a onclick="subject.switch(232)">高一物化政</a>
+              <a onclick="subject.switch(233)">高一物化生</a>
+              <a onclick="subject.switch(234)">高一史政地</a>
+              <a onclick="setTemp()"><i class="fa-regular fa-square-plus"></i> 临时</a>
+              <a onclick="setTimer()"><i class="fa-solid fa-stopwatch"></i> 倒计时</a>
+
+            </div>
+          </div>
+
+          <!-- <a class="fa-solid fa-compass hilit" href="https://thisis.host" data-sub="导航"></a> -->
+
+          <div class="dropdown">
+            <!-- <a class="fa-regular fa-images" data-sub="背景"></a> -->
+            <div style="right:-4em;min-width:10em;">
+              <div><i class="fa-solid fa-wand-magic-sparkles"></i> 选张背景
+                <div class="shieldlist">
+                  <a onclick="playCover(bg(27))">23.12</a>
+                  <a onclick="playCover(bg(26))">23.1</a>
+                  <a onclick="playCover(bg(25))">年底</a>
+                  <a onclick="playCover(bg(24))">10月</a>
+                  <a onclick="playCover(bg(23))">9月</a>
+                  <a onclick="playCover(bg())">全部</a>
+                </div>
+              </div>
+              <div>
+                <!-- <p><i class="fa-brands fa-qq"></i> 2399052066
+                  <span class="shield">投稿</span>
+                </p> -->
+                <p class="dim">协议:
+                  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>
+                </p>
+              </div>
+              <!-- <a onclick="displayCP()"><i class="fa-solid fa-list-check"></i> 背景菜单
+                <span class="shield">Ctrl+右键</span></a> -->
+              <!-- <a href="https://img.tg/album/54wL">
+                <i class="fa-solid fa-box-archive"></i> 一卷图库 -->
+                <!-- <span class="shield">更换图源</span> -->
+                <!-- <span class="shield"><i class="fa-regular fa-eye"></i> 4.7w</span> -->
+              <!-- </a> -->
+            </div>
+          </div>
+
+          <a onclick="document.documentElement.style.filter='';document.getElementById('filterSwitch').style.display='none'"
+            class="fa-solid fa-circle-half-stroke" id="filterSwitch" style="display:none" data-sub="关闭滤镜"></a>
+
+          <div class="dropdown">
+            <a class="fa-solid fa-bars" data-sub="菜单"></a>
+            <div style="right:-2em;min-width:10em;">
+              <!-- <a href="/jump-to-exam-clock.html" download="跳转到考试时钟">
+                <i class="fa-solid fa-file-arrow-down"></i> 下载快捷方式
+                <p class="dim">失败可右键-目标链接另存为</p>
+              </a> -->
+              <a><i class="fa-solid fa-users"></i> Bug反馈
+                <p class="dim">网管QQ:3442392186</p>
+              </a>
+              <div><i class="fa-solid fa-gears"></i> 开发选项
+                <div class="shieldlist">
+                  <a onclick="slogan.main=prompt('考试大标语',slogan.main)||slogan.main">
+                    <i class="fa-solid fa-quote-left"></i> 大标语</a>
+                  <a onclick="slogan.sub=[prompt('考试副标语',slogan.sub[0])]||slogan.sub">
+                    <i class="fa-solid fa-quote-right"></i> 小标语</a>
+                  <a onclick="document.getElementById('subject').innerHTML=prompt('科目名称',subject.name)||subject.name">
+                    <i class="fa-solid fa-book"></i> 科目</a>
+                  <a onclick="fixMinutes(subject.start,'开始时间')">
+                    <i class="fa-solid fa-hourglass-start"></i> 开始时间</a>
+                  <a onclick="fixMinutes(subject.end,'结束时间')">
+                    <i class="fa-solid fa-hourglass-end"></i> 结束时间</a>
+                  <a onclick="subject.to(prompt('考试类型',subject.current))">
+                    <i class="fa-solid fa-box-archive"></i> 类型</a>
+                  <!-- “离谱了，同样的代码在控制台和点击执行出来的就不一样” -->
+                  <!-- <a onclick="document.getElementById('type').innerHTML=prompt('机构名称','纸鹿教育')
+                    ||exam[subject.current].schedule()"> -->
+                    <!-- <i class="fa-regular fa-building"></i> 机构</a> -->
+                  <!-- <a href="?debug=1"> -->
+                    <!-- <i class="fa-solid fa-bug"></i> 调试 -->
+                  <!-- </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="fa-solid fa-expand" id="fullscreen" data-sub="全屏" onclick="fullscreen()"></a>
+      </nav>
+
+      <div class="dim" id="subslogan"></div>
+
+      <div class="bar">
+        <div id="bar"></div>
+      </div>
+
+      <b class="card">
+        <div>
+          <div id="subject" contenteditable>科目</div>
+          <div id="duration">请在右侧选择类型</div>
+        </div>
+        <div>
+          <div id="clock">请在右侧选择类型</div>
+        </div>
+        <div>
+          <div>
+            <span id="timer">199</span>
+            <span class="dim" id="timersub">sub</span>
+          </div>
+          <div id="activity">当前活动</div>
+        </div>
+        <!-- <div><br><br><br>test<br><br><br></div> -->
+      </b>
+    </div>
+
+    <footer>
+      <div class="space-between space">
+        <!-- <p -data-title="跑路了"><i class="fa-solid fa-code"></i>
+          Rebuild：钟圣涛</p> -->
+        <!-- <p><i class="fa-solid fa-award"></i>
+          <span data-title="钟圣涛">技术支持</span> -->
+
+
+          <!-- <span data-title="QQ群：1142349003">方块茶话会</span>
+          <span data-title="QQ群：1004048547">冒险家协会</span>
+          <span data-title="频道号:qxL848k6r0">宝中频道</span>
+          <span data-title="QQ：2124089415">宝中万能墙</span> -->
+
+
+
+        <!-- </p> -->
+        <!-- <p><i class="fa-solid fa-user-group"></i>
+          技术支持：钟圣涛
+        </p> -->
+      </div>
+      <div class="space-between space">
+        <!-- <p data-title="来自一卷图库，以CC BY-NC-SA 4.0方式使用">
+          <i class="fa-solid fa-image"></i>
+          <span id="bg">背景：雨后校园</span>
+        </p> -->
+        <!-- <p class="hilit"><i class="fa-solid fa-hashtag"></i>
+           text</span>
+        </p> -->
+        <!--<p><i class="fa-solid fa-file-arrow-up"></i>-->
+        <!--  原开源项目地址：    V 7.1.0 优化调试-->
+        <!--  <a href="https://github.com/L33Z22L11/ExamClock" style="vertical-align: middle;"><img-->
+        <!--      src="https://img.shields.io/github/last-commit/L33Z22L11/ExamClock/main?style=flat-square&logo=GitHub&label=%E4%B8%8A%E6%AC%A1%E6%9B%B4%E6%96%B0&color=%23556688"></a>-->
+        <!--</p>-->
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/clock.js"></script>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/exam.js" clock></script>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/search.js" clock></script>
+
+  <div id="cp" style="display:none;">
+    <span id="cpbd"></span>
+
+    <div style="height:100%;">
+      <p><i class="fa-regular fa-images"></i> 背景列表</p>
+      <div id="bglist"></div>
+    </div>
+
+    <div>
+      <p><i class="fa-solid fa-sliders"></i> 样式调节<br>
+        <span class="dim">小伙子，考试时别乱调，刷新能重置设置</span>
+      </p>
+      <div class="barset">
+        <div id="sizebar">
+          <div><i class="fa-solid fa-text-height"></i></div>
+          <i class="fa-solid fa-text-height"></i>
+        </div>
+        <div id="contrastbar">
+          <div><i class="fa-solid fa-circle-half-stroke"></i></div>
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p>一个未完成开发的控制中心。<br>诸多特性亟待实现。<br>
+        © 2022 Control Panel Digital Design (CPDD). All rights reserved.</p>
+    </div>
+
+    <div style="height:30%;">
+      <p><i class="fa-solid fa-info-circle"></i> 关于</p>
+      <div>
+        <details>
+          <summary>钟圣涛</summary>
+          <div class="alist">
+            <a><i class="fa-brands fa-qq"></i> 网管QQ 3442392186</a>
+            <a><i class="fa-brands fa-weixin"></i> 微信 ZST080830520</a>
+            <!-- <a><i class="fa-brands fa-weixin"></i> 公众号 </a> -->
+            <a href="https://music.163.com/user/444705789"><i class="fa-solid fa-compact-disc"></i> 网易云音乐 纸鹿本鹿</a>
+            <a href="https://github.com/DoraemonZST"><i class="fa-brands fa-github"></i> Github DoraemonZST</a>
+          </div>
+        </details>
+
+        <details>
+          <summary>Rebuild By 钟圣涛</summary>
+          <div class="alist">
+            <a><i class="fa-brands fa-qq"></i>网管QQ：3442392186</a>
+            <a href="https://github.com/CaidianExpHighSchool"><i class="fa-brands fa-github"></i> Github pubsite</a>
+            <!-- <a><i class="fa-brands fa-qq"></i> 混技 群894656456</a> -->
+            <!-- <a href="https://hi.thisis.host"><i class="fa-solid fa-earth-asia"></i> 官网 hi.thisis.host</a> -->
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/msg.js"></script>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/interact.js" msg></script>
+  <script src="https://cdsygz.s3.bitiful.net/clock/js/gallery.js" msg interact></script>
+
+  <script>
+    // send("我们需要人员提供考试信息，详见页面底部。");
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.font.im/css?family=Ubuntu:400,700">
+  <!-- <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/pubsite/GenshinWebfont/rel1.css"> -->
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "cdsygz_exam_clock",
+  "version": "1.0.0",
+  "description": "蔡甸实验高中考试时钟系统",
+  "main": "main.js",
+  "scripts": {
+    "test": "clock",
+    "start": "electron-forge start",
+    "package": "electron-packager ./ Cdsygz_Clock --out ./OutApp --app-version 1.0.0 --overwrite --icon ./icon.ico",
+    "make": "electron-forge make"
+  },
+  "author": "ZST",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.4",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
